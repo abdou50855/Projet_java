@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PlatformService {
 
-    // 🔹 Récupérer toutes les plateformes
+    //  Récupérer toutes les plateformes
     public static List<Platform> getAllPlatforms() {
         List<Platform> platforms = new ArrayList<>();
         String sql = "SELECT * FROM platforms";
@@ -29,7 +29,7 @@ public class PlatformService {
         return platforms;
     }
 
-    // 🔹 Ajouter une plateforme
+    //  Ajouter une plateforme
     public static boolean addPlatform(String name) {
         String sql = "INSERT INTO platforms(name) VALUES(?)";
         try (Connection conn = Database.getConnection();
@@ -43,7 +43,7 @@ public class PlatformService {
         return false;
     }
 
-    // 🔹 Mettre à jour une plateforme
+    //  Mettre à jour une plateforme
     public static boolean updatePlatform(int id, String name) {
         String sql = "UPDATE platforms SET name=? WHERE id=?";
         try (Connection conn = Database.getConnection();
@@ -58,7 +58,7 @@ public class PlatformService {
         return false;
     }
 
-    // 🔹 Supprimer une plateforme
+    //  Supprimer une plateforme
     public static boolean deletePlatform(int id) {
         String sql = "DELETE FROM platforms WHERE id=?";
         try (Connection conn = Database.getConnection();

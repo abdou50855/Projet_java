@@ -9,7 +9,7 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.abderrahmane.gamecollection.controllers.GameController">
 
-    <!-- 🔹 Barre supérieure -->
+    <!--  Barre supérieure -->
     <top>
         <HBox spacing="20" style="-fx-padding: 15;" alignment="CENTER_LEFT">
             <Label fx:id="welcomeLabel" styleClass="title"/>
@@ -20,7 +20,7 @@
         </HBox>
     </top>
 
-    <!-- 🔹 Centre : formulaire à gauche, tableau à droite -->
+    <!--  Centre : formulaire à gauche, tableau à droite -->
     <center>
         <HBox spacing="40" style="-fx-padding: 20;" alignment="CENTER">
             <!-- 📋 Formulaire -->

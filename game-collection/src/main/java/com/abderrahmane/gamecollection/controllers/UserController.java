@@ -19,7 +19,7 @@ public class UserController {
 
     @FXML
     public void initialize() {
-        // 🔹 Utilisation des getters classiques
+        //  Utilisation des getters classiques
         idColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleIntegerProperty(data.getValue().getId()).asObject());
         usernameColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getUsername()));
         roleColumn.setCellValueFactory(data -> new javafx.beans.property.SimpleStringProperty(data.getValue().getRole()));

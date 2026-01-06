@@ -9,7 +9,7 @@ import java.util.List;
 
 public class UserService {
 
-    // 🔹 Authentification (login)
+    //  Authentification (login)
     public static User login(String username, String password) {
         String sql = "SELECT * FROM users WHERE username=? AND password=?";
         try (Connection conn = Database.getConnection();
@@ -33,7 +33,7 @@ public class UserService {
         return null; // si non trouvé
     }
 
-    // 🔹 Inscription (signup)
+    //  Inscription (signup)
     public static boolean signup(String username, String password, String role) {
         String sql = "INSERT INTO users(username, password, role) VALUES(?,?,?)";
         try (Connection conn = Database.getConnection();
@@ -54,7 +54,7 @@ public class UserService {
         return false;
     }
 
-    // 🔹 Récupérer tous les utilisateurs (admin)
+    //  Récupérer tous les utilisateurs (admin)
     public static List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
         String sql = "SELECT * FROM users";
@@ -76,7 +76,7 @@ public class UserService {
         return users;
     }
 
-    // 🔹 Mettre à jour un utilisateur
+    //  Mettre à jour un utilisateur
     public static boolean updateUser(User user) {
         String sql = "UPDATE users SET username=?, password=?, role=? WHERE id=?";
         try (Connection conn = Database.getConnection();
@@ -94,7 +94,7 @@ public class UserService {
         return false;
     }
 
-    // 🔹 Supprimer un utilisateur
+    //  Supprimer un utilisateur
     public static boolean deleteUser(int id) {
         String sql = "DELETE FROM users WHERE id=?";
         try (Connection conn = Database.getConnection();

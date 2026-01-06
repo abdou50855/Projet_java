@@ -9,7 +9,7 @@ import java.util.List;
 
 public class PlatformDAO {
 
-    // Récupérer toutes les plateformes (ton code existant)
+    // Récupérer toutes les plateformes
     public static List<Platform> getAllPlatforms() {
         List<Platform> platforms = new ArrayList<>();
 

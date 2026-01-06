@@ -18,7 +18,7 @@ public class SceneManager {
             Parent root = loader.load();
             Scene scene = new Scene(root);
 
-            // ✅ Appliquer style.css globalement
+            //  Appliquer style.css globalement
             scene.getStylesheets().add(SceneManager.class.getResource("/style.css").toExternalForm());
 
             primaryStage.setScene(scene);
