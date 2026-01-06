@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.abderrahmane.gamecollection.controllers.HomeController">
+
+    <center>
+        <VBox spacing="20" alignment="CENTER">
+            <padding>
+                <Insets top="50" right="50" bottom="50" left="50"/>
+            </padding>
+
+            <Label text="Bienvenue dans Game Collection"
+                   style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+            <Button text="Se connecter" fx:id="loginBtn" prefWidth="200"/>
+            <Button text="Créer un compte" fx:id="signupBtn" prefWidth="200"/>
+        </VBox>
+    </center>
+
+</BorderPane>

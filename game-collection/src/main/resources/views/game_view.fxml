@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.abderrahmane.gamecollection.controllers.GameController">
+
+    <!-- 🔹 Barre supérieure -->
+    <top>
+        <HBox spacing="20" style="-fx-padding: 15;" alignment="CENTER_LEFT">
+            <Label fx:id="welcomeLabel" styleClass="title"/>
+            <Label text="Filtrer par plateforme:"/>
+            <ComboBox fx:id="platformFilter"/>
+            <Button fx:id="resetFilterBtn" text="Réinitialiser"/>
+            <Button fx:id="logoutBtn" text="Se déconnecter"/>
+        </HBox>
+    </top>
+
+    <!-- 🔹 Centre : formulaire à gauche, tableau à droite -->
+    <center>
+        <HBox spacing="40" style="-fx-padding: 20;" alignment="CENTER">
+            <!-- 📋 Formulaire -->
+            <VBox spacing="15" prefWidth="300">
+                <TextField fx:id="titleField" promptText="Titre du jeu" prefWidth="280"/>
+                <TextField fx:id="yearField" promptText="Année" prefWidth="280"/>
+                <ComboBox fx:id="platformField" promptText="Plateforme" prefWidth="280"/>
+                <Button fx:id="chooseImageBtn" text="Choisir image" prefWidth="280"/>
+                <ImageView fx:id="previewImage" fitWidth="280" fitHeight="160" preserveRatio="true"/>
+                <HBox spacing="10">
+                    <Button fx:id="addBtn" text="Ajouter" prefWidth="130"/>
+                    <Button fx:id="editBtn" text="Modifier" prefWidth="150"/>
+                    <Button fx:id="deleteBtn" text="Supprimer" prefWidth="130"/>
+                </HBox>
+
+            </VBox>
+
+            <!-- 📊 Tableau -->
+            <TableView fx:id="gameTable" prefHeight="400" prefWidth="600">
+                <columns>
+                    <TableColumn fx:id="titleColumn" text="Titre" prefWidth="200"/>
+                    <TableColumn fx:id="yearColumn" text="Année" prefWidth="100"/>
+                    <TableColumn fx:id="platformColumn" text="Plateforme" prefWidth="150"/>
+                    <TableColumn fx:id="imageColumn" text="Image" prefWidth="150"/>
+                </columns>
+            </TableView>
+        </HBox>
+    </center>
+</BorderPane>

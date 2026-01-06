@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.abderrahmane.gamecollection.controllers.AuthController">
+
+<center>
+        <VBox spacing="15" alignment="CENTER">
+            <padding>
+                <Insets top="40" right="40" bottom="40" left="40"/>
+            </padding>
+
+            <Label text="Connexion"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+            <TextField fx:id="usernameField"
+                       promptText="Nom d'utilisateur"
+                       prefWidth="250"/>
+
+            <PasswordField fx:id="passwordField"
+                           promptText="Mot de passe"
+                           prefWidth="250"/>
+
+            <!-- Bouton Login -->
+            <Button text="Se connecter"
+                    fx:id="loginBtn"
+                    prefWidth="250"/>
+
+            <!-- Bouton aller vers Signup -->
+            <Button text="Pas de compte ? Créer un compte"
+                    fx:id="goToSignupBtn"
+                    prefWidth="250"/>
+        </VBox>
+    </center>
+
+</BorderPane>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.abderrahmane.gamecollection.controllers.AdminController">
+
+    <!-- Left navigation -->
+    <left>
+        <VBox spacing="12" prefWidth="180" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="20" right="10" bottom="20" left="10"/>
+            </padding>
+            <Label text="Tables" styleClass="title"/>
+            <Button text="Utilisateurs" onAction="#showUsersSection" prefWidth="150"/>
+            <Button text="Jeux" onAction="#showGamesSection" prefWidth="150"/>
+            <Button text="Plateformes" onAction="#showPlatformsSection" prefWidth="150"/>
+            <Button text="Collections" onAction="#showCollectionsSection" prefWidth="150"/>
+            <Region prefHeight="12"/>
+            <!-- Bouton Déconnexion -->
+            <Button text="Déconnexion" fx:id="btnLogout" prefWidth="150"/>
+        </VBox>
+    </left>
+
+    <!-- Center content -->
+    <center>
+        <StackPane fx:id="contentArea">
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <!-- USERS SECTION -->
+            <VBox fx:id="usersSection" spacing="12" visible="false" managed="false">
+                <Label text="Gestion des Utilisateurs" styleClass="title"/>
+                <TableView fx:id="usersTable" prefHeight="300" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                    <columns>
+                        <TableColumn fx:id="colUserId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colUsername" text="Nom d'utilisateur" prefWidth="160"/>
+                        <TableColumn fx:id="colPassword" text="Mot de passe" prefWidth="160"/>
+                        <TableColumn fx:id="colRole" text="Rôle" prefWidth="100"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button text="Supprimer" fx:id="btnDeleteUser"/>
+                </HBox>
+            </VBox>
+
+            <!-- GAMES SECTION -->
+            <VBox fx:id="gamesSection" spacing="12" visible="false" managed="false">
+                <Label text="Gestion des Jeux" styleClass="title"/>
+                <TableView fx:id="gamesTable" prefWidth="820" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                    <columns>
+                        <TableColumn fx:id="colGameId" text="ID" prefWidth="60" />
+                        <TableColumn fx:id="colGameName" text="Nom" prefWidth="260" />
+                        <TableColumn fx:id="colGameYear" text="Année" prefWidth="80" />
+                        <TableColumn fx:id="colGamePlatform" text="Plateforme" prefWidth="160" />
+                        <TableColumn fx:id="colGameImage" text="Image" prefWidth="90" />
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Ajouter Jeu" fx:id="btnAddGame"/>
+                    <Button text="Modifier Jeu" fx:id="btnEditGame"/>
+                    <Button text="Supprimer Jeu" fx:id="btnDeleteGame"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+            <!-- PLATFORMS SECTION -->
+            <VBox fx:id="platformsSection" spacing="12" visible="false" managed="false">
+                <Label text="Gestion des Plateformes" styleClass="title"/>
+                <TableView fx:id="platformsTable" prefHeight="240" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                    <columns>
+                        <TableColumn fx:id="colPlatformId" text="ID" prefWidth="60"/>
+                        <TableColumn fx:id="colPlatformName" text="Nom" prefWidth="300"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Button text="Ajouter Plateforme" fx:id="btnAddPlatform"/>
+                    <Button text="Modifier Plateforme" fx:id="btnEditPlatform"/>
+                    <Button text="Supprimer Plateforme" fx:id="btnDeletePlatform"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+            <!-- COLLECTIONS SECTION -->
+            <VBox fx:id="collectionsSection" spacing="12" visible="false" managed="false">
+                <Label text="Collections (Utilisateur → Jeu)" styleClass="title"/>
+                <TableView fx:id="collectionsTable" prefHeight="260" prefWidth="540" VBox.vgrow="ALWAYS" maxHeight="Infinity">
+                    <columns>
+                        <TableColumn fx:id="colCollectionUser" text="Utilisateur" prefWidth="180"/>
+                        <TableColumn fx:id="colCollectionGame" text="Jeu" prefWidth="360"/>
+                    </columns>
+                </TableView>
+                <HBox spacing="10" alignment="CENTER_LEFT">
+                    <Label text="Affichage en lecture seule"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                </HBox>
+            </VBox>
+
+        </StackPane>
+    </center>
+
+</BorderPane>
