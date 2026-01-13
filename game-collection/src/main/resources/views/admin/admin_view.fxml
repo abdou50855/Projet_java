@@ -40,7 +40,6 @@
                     <columns>
                         <TableColumn fx:id="colUserId" text="ID" prefWidth="60"/>
                         <TableColumn fx:id="colUsername" text="Nom d'utilisateur" prefWidth="160"/>
-                        <TableColumn fx:id="colPassword" text="Mot de passe" prefWidth="160"/>
                         <TableColumn fx:id="colRole" text="Rôle" prefWidth="100"/>
                     </columns>
                 </TableView>

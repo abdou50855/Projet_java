@@ -123,7 +123,6 @@ public class AdminController {
     private void setupUserTable() {
         colUserId.setCellValueFactory(d -> new javafx.beans.property.SimpleIntegerProperty(d.getValue().getId()).asObject());
         colUsername.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getUsername()));
-        colPassword.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getPassword()));
         colRole.setCellValueFactory(d -> new javafx.beans.property.SimpleStringProperty(d.getValue().getRole()));
         usersTable.setItems(usersList);
     }
