@@ -7,6 +7,7 @@ import com.abderrahmane.gamecollection.models.Platform;
 import com.abderrahmane.gamecollection.models.User;
 import com.abderrahmane.gamecollection.services.GameService;
 import com.abderrahmane.gamecollection.services.PlatformService;
+import com.abderrahmane.gamecollection.services.UserGamesService;
 import com.abderrahmane.gamecollection.services.UserService;
 
 import javafx.collections.FXCollections;
@@ -467,51 +468,22 @@ public class AdminController {
 
     private void loadCollections() {
         collectionsList.clear();
-
-        try {
-            List<String> raw = GameService.getAllCollections();
-            if (raw != null) {
-                loadUsers();
-                for (String s : raw) {
-                    if (s == null || s.trim().isEmpty()) continue;
-                    String user = s;
-                    String game = "";
-                    if (s.contains("->")) {
-                        String[] parts = s.split("->", 2);
-                        user = parts[0].trim();
-                        game = parts[1].trim();
-                    } else if (s.contains(":")) {
-                        String[] parts = s.split(":", 2);
-                        user = parts[0].trim();
-                        game = parts[1].trim();
-                    } else if (s.contains("-")) {
-                        String[] parts = s.split("-", 2);
-                        user = parts[0].trim();
-                        game = parts[1].trim();
-                    } else if (s.contains("|")) {
-                        String[] parts = s.split("\\|", 2);
-                        user = parts[0].trim();
-                        game = parts[1].trim();
-                    } else {
-                        String[] parts = s.split("\\s+", 2);
-                        if (parts.length == 2) {
-                            user = parts[0].trim();
-                            game = parts[1].trim();
-                        } else {
-                            game = "";
-                        }
-                    }
-                    User found = findUserByUsername(user);
-                    if (found != null && "user".equalsIgnoreCase(found.getRole())) {
-                        collectionsList.add(new CollectionRow(found.getUsername(), game));
-                    }
+        List<String> raw = UserGamesService.getAllUserGames();
+        if (raw != null) {
+            for (String s : raw) {
+                if (s == null || s.trim().isEmpty()) continue;
+                String[] parts = s.split("→");
+                if (parts.length == 2) {
+                    String username = parts[0].trim();
+                    String gameTitle = parts[1].trim();
+                    collectionsList.add(new CollectionRow(username, gameTitle));
                 }
             }
-        } catch (NoSuchMethodError | Exception ignored) {
         }
-
         collectionsTable.setItems(collectionsList);
     }
+
+
 
     private User findUserByUsername(String username) {
         if (username == null) return null;
